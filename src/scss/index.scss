@@ -1,0 +1,18 @@
+/* @import './base/normalize'; */
+@import './base/reset';
+@import './utilits/vars';
+/* @import './utilits/common'; */
+
+::-webkit-scrollbar {
+	width: 0.35vw;
+	margin-right: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 2px;
+	background-color: #6d6760;
+}

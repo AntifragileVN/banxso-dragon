@@ -1,0 +1,35 @@
+$colors: (
+	'primary-text-color': #2c2c2c,
+	'secondary-text-color': #000000,
+	'placeholder-text-color': #505050,
+	'placeholder-modal-text-color': #c4c4c4,
+
+	'primary-bg-color': #fefefe,
+	'secondary-bg-color': #ffffff,
+
+	'border-color': #7eb101,
+	'border-input-color': #ffe550,
+	'border-modal-input-color': rgba(18, 18, 18, 0.12),
+	'border-error-color': #ff705d,
+
+	'link-accent-color': #bbf330,
+	'btn-bg-accent-color': #b5ff00,
+	'btn-border-accent-color': #597d00,
+);
+
+@function getColor($key) {
+	@return map-get($colors, $key);
+}
+
+$transition-duration: 250ms;
+$timing-function: linear;
+
+$indent: 32px;
+
+$mobile: 480px;
+$mobile-max: 767px;
+
+$tablet: 768px;
+$tablet-max: 1279px;
+
+$desktop: 1280px;
