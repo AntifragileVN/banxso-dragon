@@ -1,7 +1,7 @@
-/* @import './base/normalize'; */
+@import './base/normalize';
 @import './base/reset';
 @import './utilits/vars';
-/* @import './utilits/common'; */
+@import './utilits/common';
 
 ::-webkit-scrollbar {
 	width: 0.35vw;

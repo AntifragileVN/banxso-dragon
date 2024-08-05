@@ -1,26 +1,19 @@
-import { useEffect } from 'react';
-import * as api from '@/services/index';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import SharedLayout from '@/components/elements/SharedLayout/SharedLayout';
 import NotFound from '@/pages/NotFound/NotFound';
+import Main from '@/pages/Main/Main';
+import RocketDescription from './pages/RocketDescription/RocketDescription';
 
 function App() {
-	useEffect(() => {
-		const fetchDragons = async () => {
-			const response = await api.getRocketParameters();
-			if (response?.length >= 0) {
-				console.log(response);
-			}
-		};
-
-		fetchDragons();
-	}, []);
-
 	const router = createBrowserRouter([
 		{
 			path: '/',
 			element: <SharedLayout />,
-			children: [{ index: true }, { path: '*', element: <NotFound /> }],
+			children: [
+				{ index: true, element: <Main /> },
+				{ path: 'rocket/:id', element: <RocketDescription /> },
+				{ path: '*', element: <NotFound /> },
+			],
 		},
 	]);
 	return (
