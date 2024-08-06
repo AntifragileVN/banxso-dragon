@@ -1,0 +1,28 @@
+.swiper {
+	width: 100%;
+	height: 100%;
+	// display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.swiper-slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination {
+	top: unset !important;
+	left: unset !important;
+	bottom: unset !important;
+	width: auto !important;
+	right: unset !important;
+	position: unset !important;
+}
+
+.button-Atrangment {
+	position: absolute;
+	bottom: 0;
+}
