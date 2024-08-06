@@ -7,7 +7,11 @@ const SharedLayout = () => {
 
 	return (
 		<>
-			{location.pathname !== '/' && <Header />}
+			{location.pathname !== '/' && (
+				<div className="container">
+					<Header />
+				</div>
+			)}
 			<Suspense fallback={null}>
 				<main>
 					<Outlet />

@@ -12,3 +12,15 @@ export const getRocketParams = async (): Promise<Rocket[]> => {
 		return [];
 	}
 };
+
+export const getRocketParamsById = async (id: string): Promise<Rocket | null> => {
+	try {
+		const response: AxiosResponse<Rocket> = await axios.get(
+			`https://api.spacexdata.com/v4/dragons/${id}`
+		);
+		return response?.data;
+	} catch (error) {
+		console.error('Error fetching getRocketParameters data:', error);
+		return null;
+	}
+};
