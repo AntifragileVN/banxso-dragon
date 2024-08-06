@@ -1,0 +1,55 @@
+.section__title {
+	font-weight: 700;
+	font-size: 64px;
+	line-height: 1.2;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 32px;
+}
+
+.rocketcards__section {
+	margin-bottom: 100px;
+}
+// Statistic
+
+.statistic__section {
+	margin-bottom: 100px;
+}
+
+.statistic__list {
+	text-align: start;
+	@media (min-width: $tablet) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 32px;
+	}
+}
+
+.statistic__listItem {
+	display: flex;
+	flex-direction: column;
+	text-align: start;
+	&:not(:last-child) {
+		margin-bottom: 32px;
+	}
+
+	@media (min-width: $tablet) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		text-align: center;
+	}
+}
+
+.statistic__value {
+	font-weight: 700;
+	font-size: 64px;
+	line-height: 1.2;
+	margin-bottom: 32px;
+}
+
+.statistic__description {
+	font-size: 32px;
+	line-height: 1.2;
+}

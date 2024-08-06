@@ -1,12 +1,13 @@
-import React, { useRef } from 'react';
 import RocketCard from '../RocketCard/RocketCard';
 import c from './RocketCardList.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Swiper as SwiperType } from 'swiper/types';
-import SwiperNavButtons from '@/components/UI/SwiperNavButtons/SwiperNavButtons';
+import { Navigation, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 import type { Rocket } from '@/types/rocket.type';
-import { Navigation, Pagination } from 'swiper/modules';
 import './customSwiper.css';
 
 type RocketCardListProps = {
@@ -14,30 +15,37 @@ type RocketCardListProps = {
 };
 
 const RocketCardList = ({ rockets }: RocketCardListProps) => {
-	const swiperRef = useRef<SwiperType | null>(null);
 	return (
-		<div className={c.rocketcard__container}>
+		<>
 			<Swiper
-				centeredSlides={true}
-				slidesPerView={3}
-				modules={[Navigation, Pagination]}
-				onSwiper={(swiper) => {
-					swiperRef.current = swiper;
-				}}
-				loop={true}
+				// centeredSlides={true}
+				slidesPerView={1}
+				spaceBetween={10}
 				pagination={{
 					clickable: true,
-					dynamicBullets: true,
+					// dynamicBullets: true,
 					el: '.swiper-pagination',
+					type: 'bullets',
 				}}
 				navigation={{
-					nextEl: 'swiper-button-next',
-					prevEl: 'swiper-button-prev',
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
 				}}
 				breakpoints={{
-					600: { slidesPerView: 2 },
-					968: { slidesPerView: 3 },
+					0: {
+						slidesPerView: 1,
+						spaceBetween: 10,
+					},
+					640: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+					1024: {
+						slidesPerView: 3,
+						spaceBetween: 50,
+					},
 				}}
+				modules={[Pagination, Navigation]}
 				className={`mySwiper ${c.rocketlist}`}
 			>
 				{rockets?.length > 0
@@ -48,9 +56,14 @@ const RocketCardList = ({ rockets }: RocketCardListProps) => {
 					  ))
 					: null}
 			</Swiper>
-			<div className="button-Atrangment"></div>/
-			{swiperRef?.current ? <SwiperNavButtons swiper={swiperRef.current} /> : null}
-		</div>
+			<div className="button-Atrangment">
+				<div className="button-swiper">
+					<div className="swiper-button-prev"></div>
+					<div className="swiper-pagination"></div>
+					<div className="swiper-button-next"></div>
+				</div>
+			</div>
+		</>
 	);
 };
 

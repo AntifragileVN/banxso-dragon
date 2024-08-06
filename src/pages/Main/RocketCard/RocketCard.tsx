@@ -3,10 +3,6 @@ import c from './RocketCard.module.scss';
 import type { Rocket } from '@/types/rocket.type';
 import gif from '@/assets/rocket.gif';
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
 type RocketCardProps = {
 	rocket: Rocket;
 };
