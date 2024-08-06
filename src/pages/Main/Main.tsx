@@ -6,6 +6,12 @@ import { rocketsState } from '@/store/rockets.store';
 import { useRecoilState } from 'recoil';
 import Player from '@/components/elements/Player/Player';
 import AboutUsBg from '@/assets/video__bg.jpg';
+import PlanetIcon from '@/assets/Planet.svg?react';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import Header from '@/components/elements/Header/Header';
 
 const Main = () => {
 	const [rockets, setRockets] = useRecoilState(rocketsState);
@@ -24,6 +30,19 @@ const Main = () => {
 	}, []);
 	return (
 		<>
+			<section className={c.hero__section}>
+				<div className={c.hero__background}></div>
+				<div className="container">
+					<div className={c.hero__wrapper}>
+						<Header />
+						<h1 className={c.hero__title}>dive deep in to the future</h1>
+						<div className={c.hero__decorations}>
+							<PlanetIcon className={c.hero__planetIcon} />
+							<div className={c.hero__line}></div>
+						</div>
+					</div>
+				</div>
+			</section>
 			<section className={c.rocketcards__section}>
 				<div className="container">
 					<h1 className={c.section__title}>Our Rockets</h1>

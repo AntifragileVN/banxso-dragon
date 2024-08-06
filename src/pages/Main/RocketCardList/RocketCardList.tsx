@@ -1,4 +1,4 @@
-import RocketCard from '../RocketCard/RocketCard';
+import RocketCard from './RocketCard/RocketCard';
 import c from './RocketCardList.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';

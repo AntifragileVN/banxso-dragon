@@ -1,0 +1,17 @@
+.header__wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 40px 0px;
+}
+
+.menu {
+	display: flex;
+	align-items: centner;
+	justify-content: space-between;
+	gap: 48px;
+}
+
+.menu__item {
+	text-transform: uppercase;
+}

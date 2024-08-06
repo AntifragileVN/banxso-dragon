@@ -1,12 +1,13 @@
 import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-// import Header from 'src/components/Header/Header.jsx';
-// import { Footer } from 'src/components/footer/Footer.jsx';
+import { Outlet, useLocation } from 'react-router-dom';
+import Header from '@/components/elements/Header/Header';
 
 const SharedLayout = () => {
+	const location = useLocation();
+
 	return (
 		<>
-			{/* <Header /> */}
+			{location.pathname !== '/' && <Header />}
 			<Suspense fallback={null}>
 				<main>
 					<Outlet />

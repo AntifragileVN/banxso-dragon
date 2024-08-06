@@ -1,7 +1,8 @@
-import React from 'react';
+import { NavLink } from 'react-router-dom';
 import c from './RocketCard.module.scss';
-import type { Rocket } from '@/types/rocket.type';
 import gif from '@/assets/rocket.gif';
+
+import type { Rocket } from '@/types/rocket.type';
 
 type RocketCardProps = {
 	rocket: Rocket;
@@ -16,11 +17,14 @@ const RocketCard = ({ rocket }: RocketCardProps) => {
 		trunk,
 		launch_payload_vol,
 		name,
+		id,
 	} = rocket;
 	return (
 		<div className={c.rocketcard__wrapper}>
 			<div className={c.rocketcard__gif}>
-				<img src={gif} alt="Rocket photo" />
+				<NavLink to={`rocket/${id}`}>
+					<img src={gif} alt="Rocket photo" />
+				</NavLink>
 			</div>
 			<h3 className={c.rocketcard__title}>{name}</h3>
 			<ul className={c.rocketcard__list}>

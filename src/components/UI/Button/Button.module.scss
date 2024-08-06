@@ -1,0 +1,20 @@
+.button {
+	padding: 8px 12px;
+	background-color: getColor('primary-bg-color');
+	color: getColor('primary-text-color');
+
+	text-transform: uppercase;
+	cursor: pointer;
+
+	border-width: 1px;
+	border-style: solid;
+	border-color: getColor('primary-text-color');
+	border-radius: 21px;
+
+	transition: background-color $transition-duration;
+
+	&:hover {
+		background-color: getColor('primary-text-color');
+		color: getColor('primary-bg-color');
+	}
+}

@@ -17,6 +17,11 @@
 	border-color: getColor('border-color');
 	border-radius: 20px;
 	overflow: hidden;
+	transition: border-color $transition-duration;
+
+	&:hover {
+		border-color: #ffff;
+	}
 
 	& > img {
 		object-fit: contain;
