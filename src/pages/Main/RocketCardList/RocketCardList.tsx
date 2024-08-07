@@ -12,57 +12,62 @@ type RocketCardListProps = {
 };
 
 const RocketCardList = ({ rockets }: RocketCardListProps) => {
+	const shouldRender = rockets && rockets.length > 0;
+	console.log(rockets);
 	return (
 		<>
-			<Swiper
-				slidesPerView={1}
-				spaceBetween={10}
-				pagination={{
-					clickable: true,
-					// dynamicBullets: true,
-					el: '.rocketlist-pagination',
-					type: 'bullets',
-				}}
-				navigation={{
-					nextEl: '.rocketlist-button-next',
-					prevEl: '.rocketlist-button-prev',
-				}}
-				breakpoints={{
-					0: {
-						slidesPerView: 1,
-						spaceBetween: 10,
-					},
-					640: {
-						slidesPerView: 2,
-						spaceBetween: 20,
-					},
-					1024: {
-						slidesPerView: 3,
-						spaceBetween: 50,
-					},
-				}}
-				modules={[Pagination, Navigation]}
-				className={`mySwiper ${c.rocketlist}`}
-			>
-				{rockets?.length > 0
-					? rockets.map(({ id, ...rest }) => (
-							<SwiperSlide key={id}>
+			{shouldRender ? (
+				<>
+					<Swiper
+						data-testid="rocket-list"
+						slidesPerView={1}
+						spaceBetween={10}
+						pagination={{
+							clickable: true,
+							// dynamicBullets: true,
+							el: '.rocketlist-pagination',
+							type: 'bullets',
+						}}
+						navigation={{
+							nextEl: '.rocketlist-button-next',
+							prevEl: '.rocketlist-button-prev',
+						}}
+						breakpoints={{
+							0: {
+								slidesPerView: 1,
+								spaceBetween: 10,
+							},
+							640: {
+								slidesPerView: 2,
+								spaceBetween: 20,
+							},
+							1024: {
+								slidesPerView: 3,
+								spaceBetween: 50,
+							},
+						}}
+						modules={[Pagination, Navigation]}
+						className={`mySwiper ${c.rocketlist}`}
+					>
+						{rockets.map(({ id, ...rest }) => (
+							<SwiperSlide key={id} data-testid={'rocket-slide-item'}>
 								<RocketCard rocket={{ id, ...rest }} />
 							</SwiperSlide>
-					  ))
-					: null}
-			</Swiper>
-			<div className="button-Atrangment">
-				<div className="rocket-swiper">
-					<div className="rocketlist-button-prev">
-						<Arrow className={c.arrowIcon} />
+						))}
+					</Swiper>
+					<div className="button-Atrangment">
+						<div className="rocket-swiper">
+							<div className="rocketlist-button-prev">
+								<Arrow className={c.arrowIcon} />
+							</div>
+							<div className="rocketlist-pagination"></div>
+							<div className="rocketlist-button-next">
+								<Arrow className={`${c.arrowIcon} ${c.rotate}`} />
+							</div>
+						</div>
 					</div>
-					<div className="rocketlist-pagination"></div>
-					<div className="rocketlist-button-next">
-						<Arrow className={`${c.arrowIcon} ${c.rotate}`} />
-					</div>
-				</div>
-			</div>
+				</>
+			) : null}
 		</>
 	);
 };

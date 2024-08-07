@@ -40,14 +40,13 @@ const Main = () => {
 		const fetchRocketParams = async () => {
 			const response = await api.getRocketParams();
 			if (response?.length >= 0) {
-				console.log(response);
 				setRockets(response);
 				setRockets((prev) => [...prev, ...response]);
 			}
 		};
 
 		fetchRocketParams();
-	}, []);
+	}, [setRockets]);
 	return (
 		<>
 			<section className={c.hero__section}>

@@ -45,7 +45,7 @@ export type Rocket = {
 		meters: number;
 		feet: number;
 	};
-	first_flight: number;
+	first_flight: string;
 	flickr_images: string[];
 	name: string;
 	type: string;
@@ -60,8 +60,8 @@ export type Rocket = {
 			type: string;
 			amount: number;
 			pods: number;
-			fuel_1: number;
-			fuel_2: number;
+			fuel_1: string;
+			fuel_2: string;
 			isp: number;
 			thrust: {
 				kN: number;
@@ -71,5 +71,5 @@ export type Rocket = {
 	];
 	wikipedia: string;
 	description: string;
-	id: number;
+	id: string;
 };

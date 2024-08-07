@@ -8,27 +8,34 @@ type ParallaxSectionProps = {
 	parallaxContent: ParallaxContentType[];
 };
 const ParallaxSection = ({ parallaxContent }: ParallaxSectionProps) => {
+	const shouldRender = parallaxContent && parallaxContent.length > 0;
 	return (
-		<section className={c.parallax__section}>
-			<Swiper
-				spaceBetween={0}
-				effect="slide"
-				speed={500}
-				// centeredSlides={true}
-				navigation={true}
-				pagination={{
-					clickable: true,
-					type: 'bullets',
-				}}
-				modules={[Navigation, Pagination, Parallax]}
-				parallax={true}
-				data-swiper-parallax="-23%"
-				className="ParallaxSwiper"
-			>
-				{parallaxContent?.length >= 0
-					? parallaxContent.map(({ title, description }, index) => (
+		<>
+			{shouldRender ? (
+				<section className={c.parallax__section}>
+					<Swiper
+						data-testid="parallax-list"
+						spaceBetween={0}
+						effect="slide"
+						speed={500}
+						// centeredSlides={true}
+						navigation={true}
+						pagination={{
+							clickable: true,
+							type: 'bullets',
+						}}
+						modules={[Navigation, Pagination, Parallax]}
+						parallax={true}
+						data-swiper-parallax="-23%"
+						className="ParallaxSwiper"
+					>
+						{parallaxContent.map(({ title, description }, index) => (
 							<>
-								<SwiperSlide key={title} className="hero-slide">
+								<SwiperSlide
+									key={index}
+									data-testid="parallax-slide-item"
+									className="hero-slide"
+								>
 									<div className="parallax-bg">
 										<img src={parallaxContent[index].img} alt="" />
 									</div>
@@ -43,10 +50,11 @@ const ParallaxSection = ({ parallaxContent }: ParallaxSectionProps) => {
 									</div>
 								</SwiperSlide>
 							</>
-					  ))
-					: null}
-			</Swiper>
-		</section>
+						))}
+					</Swiper>
+				</section>
+			) : null}
+		</>
 	);
 };
 

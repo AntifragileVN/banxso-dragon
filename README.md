@@ -1,8 +1,8 @@
-# Project Description: SpaceX Dragon Rocket Information Web Application
-
-## Overview
+# SpaceX Dragon Rocket Information Web Application
 
 This project is a web application that displays detailed information about the SpaceX Dragon rocket. The application fetches data from the SpaceX API and presents it in a user-friendly interface designed according to the provided Figma design.
+
+## Stack:
 
 #### Frontend:
 
@@ -12,6 +12,7 @@ React, Typescript, RecoilJs, Swiper, React-player Axios, SCSS.
 
 `npm i` - install dependencies <br />
 `npm run dev` - run your frontend <br />
+`npm run test` - run your tests <br />
 
 ### NOTES
 
