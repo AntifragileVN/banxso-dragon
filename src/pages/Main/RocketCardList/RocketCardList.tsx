@@ -24,12 +24,12 @@ const RocketCardList = ({ rockets }: RocketCardListProps) => {
 				pagination={{
 					clickable: true,
 					// dynamicBullets: true,
-					el: '.swiper-pagination',
+					el: '.rocketlist-pagination',
 					type: 'bullets',
 				}}
 				navigation={{
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev',
+					nextEl: '.rocketlist-button-next',
+					prevEl: '.rocketlist-button-prev',
 				}}
 				breakpoints={{
 					0: {
@@ -58,9 +58,9 @@ const RocketCardList = ({ rockets }: RocketCardListProps) => {
 			</Swiper>
 			<div className="button-Atrangment">
 				<div className="button-swiper">
-					<div className="swiper-button-prev"></div>
-					<div className="swiper-pagination"></div>
-					<div className="swiper-button-next"></div>
+					<div className="rocketlist-button-prev"></div>
+					<div className="rocketlist-pagination"></div>
+					<div className="rocketlist-button-next"></div>
 				</div>
 			</div>
 		</>

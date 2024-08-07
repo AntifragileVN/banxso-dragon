@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import { rocketsState } from '@/store/rockets.store';
 import * as api from '@/services/index';
 import c from './Main.module.scss';
 import RocketCardList from './RocketCardList/RocketCardList';
-import { rocketsState } from '@/store/rockets.store';
-import { useRecoilState } from 'recoil';
+import Header from '@/components/elements/Header/Header';
 import Player from '@/components/elements/Player/Player';
 import AboutUsBg from '@/assets/video__bg.jpg';
+import TeamSection from './TeamSection/TeamSection';
+import ParallaxSection from './ParallaxSection/ParallaxSection';
 import PlanetIcon from '@/assets/Planet.svg?react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import Header from '@/components/elements/Header/Header';
+import './RocketCardList/customSwiper.css';
 
 const Main = () => {
 	const [rockets, setRockets] = useRecoilState(rocketsState);
@@ -83,6 +86,8 @@ const Main = () => {
 					/>
 				</div>
 			</section>
+			{/* <TeamSection /> */}
+			<ParallaxSection />
 		</>
 	);
 };

@@ -1,11 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import { Swiper as SwiperType } from 'swiper/types';
 import c from './RocketDescription.module.scss';
 import * as api from '@/services/index';
 import { Rocket } from '@/types/rocket.type';
 import gif from '@/assets/rocket.gif';
+import SwiperNavButtons from '@/components/elements/SwiperNavButtons/SwiperNavButtons';
 
 const RocketDescription = () => {
+	const swiperRef = useRef<SwiperType | null>(null);
 	const { id } = useParams();
 	const [rocket, setRocket] = useState<Rocket | null>(null);
 
@@ -35,7 +38,6 @@ const RocketDescription = () => {
 		trunk,
 		launch_payload_vol,
 		name,
-		id: rocketId,
 	} = rocket;
 
 	return (

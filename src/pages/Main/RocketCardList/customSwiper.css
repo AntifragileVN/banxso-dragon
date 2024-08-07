@@ -1,5 +1,18 @@
-.swiper-button-next,
-.swiper-button-prev {
+.swiper {
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.swiper-slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rocketlist-button-next,
+.rocketlist-button-prev {
 	background-position: center;
 	background-size: 40px;
 	background-repeat: no-repeat;
@@ -7,24 +20,24 @@
 	content: '';
 }
 
-.swiper-button-prev {
+.rocketlist-button-prev {
 	background-image: url('src/assets/Arrow.svg');
 	transform: translateY(25%);
 }
 
-.swiper-button-next {
+.rocketlist-button-next {
 	background-image: url('src/assets/Arrow.svg');
 	transform: rotate(180deg) translateY(-25%);
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
+.rocketlist-button-next::after,
+.rocketlist-button-prev::after {
 	content: '';
 }
 
-.swiper-button-prev,
-.swiper-button-next,
-.swiper-pagination {
+.rocketlist-button-prev,
+.rocketlist-button-next,
+.rocketlist-pagination {
 	top: unset !important;
 	left: unset !important;
 	bottom: unset !important;
