@@ -5,6 +5,7 @@ import * as api from '@/services/index';
 import { Rocket } from '@/types/rocket.type';
 import gif from '@/assets/rocket.gif';
 import ParallaxSection from '@/pages/Main/ParallaxSection/ParallaxSection';
+import { ParallaxContentType } from '@/types/parallax.type';
 
 const RocketDescription = () => {
 	const { id } = useParams();
@@ -36,8 +37,12 @@ const RocketDescription = () => {
 		trunk,
 		launch_payload_vol,
 		name,
+		flickr_images,
 	} = rocket;
 
+	const rocketImages = flickr_images.map((img) => ({
+		img,
+	})) as ParallaxContentType[];
 	return (
 		<>
 			<section className={`${c.description__section}`}>
@@ -86,7 +91,7 @@ const RocketDescription = () => {
 					</div>
 				</div>
 			</section>
-			<ParallaxSection />
+			<ParallaxSection parallaxContent={rocketImages} />
 		</>
 	);
 };

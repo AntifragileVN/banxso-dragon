@@ -1,25 +1,13 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Parallax } from 'swiper/modules';
 import c from './ParallaxSection.module.scss';
-import capabilitiesImg from '@/assets/capabilities__bg.jpg';
-import oterImg from '@/assets/starbase__bg.jpg';
 import './swiperParallax.css';
+import type { ParallaxContentType } from '@/types/parallax.type';
 
-const parallaxContent = [
-	{
-		title: 'STARSHIP CAPABILITIES',
-		description:
-			'As the most powerful launch system ever developed, Starship will be able to carry up to 100 people on long-duration, interplanetary flights. Starship will also help enable satellite delivery, the development of a Moon base, and point-to-point here on Earth.',
-		img: oterImg,
-	},
-	{
-		title: 'STARSHIP',
-		description:
-			'As the most powerful launch system ever developed, Starship will be able to carry up to 100 people on long-duration, interplanetary flights. Starship will also help enable satellite delivery, the development of a Moon base, and point-to-point here on Earth.',
-		img: capabilitiesImg,
-	},
-];
-const ParallaxSection = () => {
+type ParallaxSectionProps = {
+	parallaxContent: ParallaxContentType[];
+};
+const ParallaxSection = ({ parallaxContent }: ParallaxSectionProps) => {
 	return (
 		<section className={c.parallax__section}>
 			<Swiper
@@ -37,24 +25,26 @@ const ParallaxSection = () => {
 				data-swiper-parallax="-23%"
 				className="ParallaxSwiper"
 			>
-				{parallaxContent.map(({ title, description }, index) => (
-					<>
-						<SwiperSlide key={title} className="hero-slide">
-							<div className="parallax-bg">
-								<img src={parallaxContent[index].img} alt="" />
-							</div>
-							<div className="content">
-								<h1
-									className={c.parallax__title}
-									data-swiper-parallax="-500"
-								>
-									{title}
-								</h1>
-								<p className={c.parallax__text}>{description}</p>
-							</div>
-						</SwiperSlide>
-					</>
-				))}
+				{parallaxContent?.length >= 0
+					? parallaxContent.map(({ title, description }, index) => (
+							<>
+								<SwiperSlide key={title} className="hero-slide">
+									<div className="parallax-bg">
+										<img src={parallaxContent[index].img} alt="" />
+									</div>
+									<div className="content">
+										<h1
+											className={c.parallax__title}
+											data-swiper-parallax="-500"
+										>
+											{title}
+										</h1>
+										<p className={c.parallax__text}>{description}</p>
+									</div>
+								</SwiperSlide>
+							</>
+					  ))
+					: null}
 			</Swiper>
 		</section>
 	);

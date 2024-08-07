@@ -11,9 +11,27 @@ import TeamSection from './TeamSection/TeamSection';
 import ParallaxSection from './ParallaxSection/ParallaxSection';
 import PlanetIcon from '@/assets/Planet.svg?react';
 
+import capabilitiesImg from '@/assets/capabilities__bg.jpg';
+import oterImg from '@/assets/starbase__bg.jpg';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+
+const parallaxContent = [
+	{
+		title: 'STARSHIP CAPABILITIES',
+		description:
+			'As the most powerful launch system ever developed, Starship will be able to carry up to 100 people on long-duration, interplanetary flights. Starship will also help enable satellite delivery, the development of a Moon base, and point-to-point here on Earth.',
+		img: oterImg,
+	},
+	{
+		title: 'STARSHIP',
+		description:
+			'As the most powerful launch system ever developed, Starship will be able to carry up to 100 people on long-duration, interplanetary flights. Starship will also help enable satellite delivery, the development of a Moon base, and point-to-point here on Earth.',
+		img: capabilitiesImg,
+	},
+];
 
 const Main = () => {
 	const [rockets, setRockets] = useRecoilState(rocketsState);
@@ -86,7 +104,7 @@ const Main = () => {
 				</div>
 			</section>
 			<TeamSection />
-			<ParallaxSection />
+			<ParallaxSection parallaxContent={parallaxContent} />
 		</>
 	);
 };
