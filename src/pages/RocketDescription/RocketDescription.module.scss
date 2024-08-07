@@ -13,12 +13,20 @@
 
 .description__wrapper {
 	display: flex;
-	gap: 24px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	border-width: 1px;
 	border-style: solid;
 	border-color: getColor('border-color');
 	border-radius: 20px;
 	padding: 24px;
+	@media (min-width: $tablet) {
+		flex-direction: row;
+		gap: 24px;
+		align-items: center;
+		justify-content: space-between;
+	}
 }
 
 .description__content {
@@ -28,13 +36,15 @@
 }
 
 .description__img {
-	// width: 100%;
-
 	border-width: 1px;
 	border-style: solid;
 	border-color: getColor('border-color');
 	border-radius: 20px;
 	overflow: hidden;
+
+	@media (max-width: $tablet) {
+		margin-bottom: 20px;
+	}
 }
 
 .description__gif {
