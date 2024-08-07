@@ -1,0 +1,24 @@
+.team-button-next,
+.team-button-prev {
+	background-color: white;
+	padding: 24px;
+	border-radius: 20px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.team-button-next.swiper-button-disabled,
+.team-button-prev.swiper-button-disabled {
+	opacity: 0.3;
+	cursor: auto;
+}
+
+.team-button-next::after,
+.team-button-prev::after {
+	content: '';
+}
+
+.team__button-swiper {
+	display: flex;
+	gap: 12px;
+}

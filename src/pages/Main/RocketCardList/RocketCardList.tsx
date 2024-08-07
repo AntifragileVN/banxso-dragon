@@ -2,10 +2,7 @@ import RocketCard from './RocketCard/RocketCard';
 import c from './RocketCardList.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import Arrow from '@/assets/Arrow.svg?react';
 
 import type { Rocket } from '@/types/rocket.type';
 import './customSwiper.css';
@@ -18,7 +15,6 @@ const RocketCardList = ({ rockets }: RocketCardListProps) => {
 	return (
 		<>
 			<Swiper
-				// centeredSlides={true}
 				slidesPerView={1}
 				spaceBetween={10}
 				pagination={{
@@ -57,10 +53,14 @@ const RocketCardList = ({ rockets }: RocketCardListProps) => {
 					: null}
 			</Swiper>
 			<div className="button-Atrangment">
-				<div className="button-swiper">
-					<div className="rocketlist-button-prev"></div>
+				<div className="rocket-swiper">
+					<div className="rocketlist-button-prev">
+						<Arrow className={c.arrowIcon} />
+					</div>
 					<div className="rocketlist-pagination"></div>
-					<div className="rocketlist-button-next"></div>
+					<div className="rocketlist-button-next">
+						<Arrow className={`${c.arrowIcon} ${c.rotate}`} />
+					</div>
 				</div>
 			</div>
 		</>

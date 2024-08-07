@@ -1,11 +1,10 @@
-// import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Parallax } from 'swiper/modules';
 import c from './ParallaxSection.module.scss';
 import capabilitiesImg from '@/assets/capabilities__bg.jpg';
 import oterImg from '@/assets/starbase__bg.jpg';
 import './swiperParallax.css';
-// import '@/pages/Main/RocketCardList/customSwiper.css';
+
 const parallaxContent = [
 	{
 		title: 'STARSHIP CAPABILITIES',
@@ -27,7 +26,7 @@ const ParallaxSection = () => {
 				spaceBetween={0}
 				effect="slide"
 				speed={500}
-				centeredSlides={true}
+				// centeredSlides={true}
 				navigation={true}
 				pagination={{
 					clickable: true,

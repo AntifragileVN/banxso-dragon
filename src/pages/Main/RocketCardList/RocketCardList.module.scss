@@ -5,3 +5,13 @@
 .rocketcard__container {
 	// display: flex;
 }
+
+.arrowIcon {
+	width: 40px;
+	height: 40px;
+	fill: getColor('primary-text-color');
+}
+
+.rotate {
+	transform: rotate(180deg);
+}

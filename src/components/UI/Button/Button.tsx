@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import c from './Button.module.scss';
 
 type ButtonProps = {

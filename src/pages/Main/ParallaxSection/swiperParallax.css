@@ -1,11 +1,11 @@
 .hero-slide {
 	height: 850px !important;
 	padding: 32px 60px;
-	display: flex;
+	display: flex !important;
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: flex-start;
-	position: relative;
+	/* position: relative; */
 	overflow: hidden;
 }
 
@@ -22,6 +22,7 @@
 	justify-content: center;
 	align-items: center;
 	z-index: -1;
+	/* overflow: hidden; */
 }
 .parallax-bg img {
 	max-width: none;
@@ -42,72 +43,42 @@
 	padding-bottom: 126px;
 }
 
+.swiper-pagination {
+	z-index: 2 !important;
+}
+
 .swiper-button-next,
 .swiper-button-prev {
+	background-image: url('src/assets/ArrowWhite.svg');
+	fill: white;
 	background-position: bottom;
 	background-size: 40px;
 	background-repeat: no-repeat;
 	padding: 8px 16px;
 	content: '';
-
 	position: absolute;
-
 	top: unset !important;
-
 	z-index: 100;
-}
-
-.swiper-button-prev {
-	background-image: url('src/assets/Arrow.svg');
-	transform: translateY(25%);
-	left: 60px !important;
-}
-
-.swiper-button-next {
-	background-image: url('src/assets/Arrow.svg');
-	transform: rotate(180deg) translateY(-25%);
-
-	right: 60px !important;
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
 	content: '';
+	opacity: 0;
+}
+
+.swiper-button-prev {
+	transform: translateY(25%);
+	left: 60px !important;
+}
+
+.swiper-button-next {
+	transform: rotate(180deg) translateY(-25%);
+	right: 60px !important;
 }
 
 .swiper-button-prev,
 .swiper-button-next,
 .swiper-pagination {
 	bottom: 50px !important;
-}
-
-.button-Atrrangment {
-	/* display: flex; */
-	position: absolute;
-	bottom: 10px;
-	width: 100%;
-}
-
-.button-swiper {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	min-width: 300px;
-	width: 100%;
-	padding: 23px;
-}
-
-.swiper-pagination-bullet {
-	background-color: white;
-	height: 16px;
-	width: 16px;
-	margin-right: 12px;
-}
-
-.swiper-horizontal
-	> .swiper-horizontal
-	> .swiper-pagination-bullets
-	.swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-	margin-right: 12px;
 }

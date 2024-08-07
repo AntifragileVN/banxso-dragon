@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { rocketsState } from '@/store/rockets.store';
 import * as api from '@/services/index';
@@ -14,7 +14,6 @@ import PlanetIcon from '@/assets/Planet.svg?react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import './RocketCardList/customSwiper.css';
 
 const Main = () => {
 	const [rockets, setRockets] = useRecoilState(rocketsState);
@@ -86,7 +85,7 @@ const Main = () => {
 					/>
 				</div>
 			</section>
-			{/* <TeamSection /> */}
+			<TeamSection />
 			<ParallaxSection />
 		</>
 	);

@@ -1,14 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Swiper as SwiperType } from 'swiper/types';
 import c from './RocketDescription.module.scss';
 import * as api from '@/services/index';
 import { Rocket } from '@/types/rocket.type';
 import gif from '@/assets/rocket.gif';
-import SwiperNavButtons from '@/components/elements/SwiperNavButtons/SwiperNavButtons';
+import ParallaxSection from '@/pages/Main/ParallaxSection/ParallaxSection';
 
 const RocketDescription = () => {
-	const swiperRef = useRef<SwiperType | null>(null);
 	const { id } = useParams();
 	const [rocket, setRocket] = useState<Rocket | null>(null);
 
@@ -41,50 +39,55 @@ const RocketDescription = () => {
 	} = rocket;
 
 	return (
-		<section className={`${c.description__section} container`}>
-			<h1 className={c.description__title}>{name}</h1>
-			<div className={c.description__wrapper}>
-				<img src={gif} alt="" className={c.description__img} />
-				<div className={c.description__content}>
-					<h2 className={c.description__contentTitle}>{name}</h2>
+		<>
+			<section className={`${c.description__section}`}>
+				<div className="container">
+					<h1 className={c.description__title}>{name}</h1>
+					<div className={c.description__wrapper}>
+						<img src={gif} alt="" className={c.description__img} />
+						<div className={c.description__content}>
+							<h2 className={c.description__contentTitle}>{name}</h2>
 
-					<ul className={c.description__list}>
-						<li className={c.description__listItem}>
-							HEIGHT:
-							<span>{`${height_w_trunk.meters} M / ${height_w_trunk.feet} F`}</span>
-						</li>
-						<li className={c.description__listItem}>
-							DIAMETER:
-							<span>{`${diameter.meters} M / ${diameter.feet} F`}</span>
-						</li>
-						<li className={c.description__listItem}>
-							SPACECRAFT VOLUME:
-							<span>
-								{`${launch_payload_vol.cubic_meters} M³ / ${launch_payload_vol.cubic_meters} F³`}
-							</span>
-						</li>
-						<li className={c.description__listItem}>
-							TRUNK VOLUME:
-							<span>
-								{`${trunk.trunk_volume.cubic_meters} M³ / ${trunk.trunk_volume.cubic_feet} FT³`}
-							</span>
-						</li>
-						<li className={c.description__listItem}>
-							LAUNCH PAYLOAD MASS:
-							<span>
-								{`${launch_payload_mass.kg} KG / ${launch_payload_mass.lb} LBS`}
-							</span>
-						</li>
-						<li className={c.description__listItem}>
-							RETURN PAYLOAD MASS:
-							<span>
-								{`${return_payload_mass.kg} KG / ${return_payload_mass.lb} LBS`}
-							</span>
-						</li>
-					</ul>
+							<ul className={c.description__list}>
+								<li className={c.description__listItem}>
+									HEIGHT:
+									<span>{`${height_w_trunk.meters} M / ${height_w_trunk.feet} F`}</span>
+								</li>
+								<li className={c.description__listItem}>
+									DIAMETER:
+									<span>{`${diameter.meters} M / ${diameter.feet} F`}</span>
+								</li>
+								<li className={c.description__listItem}>
+									SPACECRAFT VOLUME:
+									<span>
+										{`${launch_payload_vol.cubic_meters} M³ / ${launch_payload_vol.cubic_meters} F³`}
+									</span>
+								</li>
+								<li className={c.description__listItem}>
+									TRUNK VOLUME:
+									<span>
+										{`${trunk.trunk_volume.cubic_meters} M³ / ${trunk.trunk_volume.cubic_feet} FT³`}
+									</span>
+								</li>
+								<li className={c.description__listItem}>
+									LAUNCH PAYLOAD MASS:
+									<span>
+										{`${launch_payload_mass.kg} KG / ${launch_payload_mass.lb} LBS`}
+									</span>
+								</li>
+								<li className={c.description__listItem}>
+									RETURN PAYLOAD MASS:
+									<span>
+										{`${return_payload_mass.kg} KG / ${return_payload_mass.lb} LBS`}
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+			<ParallaxSection />
+		</>
 	);
 };
 
