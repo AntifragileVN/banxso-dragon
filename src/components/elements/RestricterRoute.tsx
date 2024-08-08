@@ -4,7 +4,6 @@ import { Navigate } from 'react-router-dom';
 type RestrictedRouteProps = {
 	component: React.ComponentType;
 	redirectTo: string;
-	// [key: string]: any;
 };
 
 export const RestrictedRoute = ({
@@ -12,6 +11,8 @@ export const RestrictedRoute = ({
 	redirectTo = '/',
 }: RestrictedRouteProps) => {
 	const { currentUser } = useAuth();
+
+	console.log(!!currentUser);
 
 	return currentUser ? <Navigate to={redirectTo} /> : <Component />;
 };

@@ -13,7 +13,7 @@ type RocketCardListProps = {
 
 const RocketCardList = ({ rockets }: RocketCardListProps) => {
 	const shouldRender = rockets && rockets.length > 0;
-	console.log(rockets);
+
 	return (
 		<>
 			{shouldRender ? (

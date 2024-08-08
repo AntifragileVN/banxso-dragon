@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '@/services/firebase';
-import { useRecoilState } from 'recoil';
-import { currentUserState } from '@/store/user.store';
 import { FirebaseError } from 'firebase/app';
 import c from '@/components/elements/Form/Form.module.scss';
 
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 import { FiLock } from 'react-icons/fi';
 import { FaGoogle } from 'react-icons/fa';
-import { Form } from 'react-router-dom';
+import { useAuth } from '@/services/auth.service';
 
 const FirebaseAuthUI: React.FC = () => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
-	const [emailError, setEmailError] = useState<string>('');
-	const [passwordError, setPasswordError] = useState<string>('');
+	// const [emailError, setEmailError] = useState<string>('');
+	// const [passwordError, setPasswordError] = useState<string>('');
 
-	const [, setCurrentUser] = useRecoilState(currentUserState);
 	const provider = new GoogleAuthProvider();
+	const { setCurrentUser } = useAuth();
 
 	const onButtonClick = async () => {
 		try {
@@ -53,7 +51,11 @@ const FirebaseAuthUI: React.FC = () => {
 				<form className={c.form}>
 					<h1 className={c.form__title}>Create Account</h1>
 					<div className={c.form__socials}>
-						<button className={c.form__socialsBtn} onClick={onButtonClick}>
+						<button
+							type="button"
+							className={c.form__socialsBtn}
+							onClick={onButtonClick}
+						>
 							<FaGoogle className={c.form__socialsIcon} />
 						</button>
 					</div>
@@ -84,7 +86,9 @@ const FirebaseAuthUI: React.FC = () => {
 							value={password}
 						/>
 					</div>
-					<button className={c.form__submit}>Sign Up</button>
+					<button type="submit" className={c.form__submit}>
+						Sign Up
+					</button>
 				</form>
 			</div>
 		</div>
