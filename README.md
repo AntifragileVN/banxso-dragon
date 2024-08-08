@@ -1,4 +1,4 @@
-# SpaceX Dragon Rocket Information Web Application
+# Banxso SpaceX Dragon Web Application
 
 This project is a web application that displays detailed information about the SpaceX Dragon rocket. The application fetches data from the SpaceX API and presents it in a user-friendly interface designed according to the provided Figma design.
 
@@ -24,7 +24,7 @@ This project is configured to automatically deploy to Netlify whenever changes a
 
 ### Deployment Workflow
 
-The deployment process is managed through GitHub Actions and is defined in the `deploy.yml` file located in the `.github/workflows` directory.
+The deployment process is managed through GitHub Actions and is defined in the `deploy.yml` file located in the `.github/workflows` directory. The project's tests is integrated in deployment process, so if some of tests won't be passed the deploy will fail.
 
 ### Key Points
 
