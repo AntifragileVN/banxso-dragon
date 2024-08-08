@@ -1,8 +1,11 @@
+import { lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import SharedLayout from '@/components/elements/SharedLayout/SharedLayout';
-import NotFound from '@/pages/NotFound/NotFound';
 import Main from '@/pages/Main/Main';
-import RocketDescription from './pages/RocketDescription/RocketDescription';
+const NotFound = lazy(() => import('@/pages/NotFound/NotFound'));
+const RocketDescription = lazy(
+	() => import('./pages/RocketDescription/RocketDescription')
+);
 
 function App() {
 	const router = createBrowserRouter([

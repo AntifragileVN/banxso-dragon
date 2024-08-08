@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Parallax } from 'swiper/modules';
 import c from './ParallaxSection.module.scss';
-import './swiperParallax.css';
+import './swiperParallax.scss';
 import type { ParallaxContentType } from '@/types/parallax.type';
 
 type ParallaxSectionProps = {

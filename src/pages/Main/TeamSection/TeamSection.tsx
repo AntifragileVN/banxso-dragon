@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import c from './TeamSection.module.scss';
-import teamMemberAvatar from '@/assets/developer__avatar.png';
 import TeamCard from './TeamCard/TeamCard';
 import Arrow from '@/assets/Arrow.svg?react';
 import './teamSwiper.css';
@@ -12,25 +11,12 @@ export type TeamMember = {
 	avatar: string;
 };
 
-const team = [
-	{
-		role: 'st.mechanic',
-		name: 'Dave Johnson',
-		avatar: teamMemberAvatar,
-	},
-	{
-		role: 'st.mechanic',
-		name: 'Tom Johnson',
-		avatar: teamMemberAvatar,
-	},
-	{
-		role: 'st.mechanic',
-		name: 'Tom Johnson',
-		avatar: teamMemberAvatar,
-	},
-] as TeamMember[];
+type TeamSectionProps = {
+	team: TeamMember[];
+};
 
-const TeamSection = () => {
+const TeamSection = ({ team }: TeamSectionProps) => {
+	const shouldSwiperRender = team && team.length > 0;
 	return (
 		<section className={`${c.team__section} `}>
 			<div className="container">
@@ -44,19 +30,21 @@ const TeamSection = () => {
 							ipsum ut gravida. Fusce.
 						</p>
 
-						<div className={c.team__navigation}>
-							<div className="team__button-swiper">
-								<div className="team-button-prev">
-									<Arrow className={c.arrowIcon} />
-								</div>
-								<div className="team-button-next">
-									<Arrow className={`${c.arrowIcon} ${c.rotate}`} />
+						{shouldSwiperRender ? (
+							<div className={c.team__navigation}>
+								<div className="team__button-swiper">
+									<div className="team-button-prev">
+										<Arrow className={c.arrowIcon} />
+									</div>
+									<div className="team-button-next">
+										<Arrow className={`${c.arrowIcon} ${c.rotate}`} />
+									</div>
 								</div>
 							</div>
-						</div>
+						) : null}
 					</div>
 					<div className={c.team__sliderContainer}>
-						{
+						{shouldSwiperRender ? (
 							<Swiper
 								slidesPerView={1}
 								spaceBetween={10}
@@ -87,7 +75,7 @@ const TeamSection = () => {
 									</SwiperSlide>
 								))}
 							</Swiper>
-						}
+						) : null}
 					</div>
 				</div>
 			</div>

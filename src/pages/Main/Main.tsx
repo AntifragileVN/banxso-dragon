@@ -7,12 +7,13 @@ import RocketCardList from './RocketCardList/RocketCardList';
 import Header from '@/components/elements/Header/Header';
 import Player from '@/components/elements/Player/Player';
 import AboutUsBg from '@/assets/video__bg.jpg';
-import TeamSection from './TeamSection/TeamSection';
+import TeamSection, { TeamMember } from './TeamSection/TeamSection';
 import ParallaxSection from './ParallaxSection/ParallaxSection';
 import PlanetIcon from '@/assets/Planet.svg?react';
 
 import capabilitiesImg from '@/assets/capabilities__bg.jpg';
 import oterImg from '@/assets/starbase__bg.jpg';
+import teamMemberAvatar from '@/assets/developer__avatar.png';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -32,6 +33,24 @@ const parallaxContent = [
 		img: capabilitiesImg,
 	},
 ];
+
+const team = [
+	{
+		role: 'st.mechanic',
+		name: 'Dave Johnson',
+		avatar: teamMemberAvatar,
+	},
+	{
+		role: 'st.mechanic',
+		name: 'Tom Johnson',
+		avatar: teamMemberAvatar,
+	},
+	{
+		role: 'st.mechanic',
+		name: 'Tom Johnson',
+		avatar: teamMemberAvatar,
+	},
+] as TeamMember[];
 
 const Main = () => {
 	const [rockets, setRockets] = useRecoilState(rocketsState);
@@ -102,7 +121,7 @@ const Main = () => {
 					/>
 				</div>
 			</section>
-			<TeamSection />
+			<TeamSection team={team} />
 			<ParallaxSection parallaxContent={parallaxContent} />
 		</>
 	);
