@@ -2,6 +2,8 @@ import { lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import SharedLayout from '@/components/elements/SharedLayout/SharedLayout';
 import Main from '@/pages/Main/Main';
+import { RestrictedRoute } from '@/components/elements/RestricterRoute';
+const FirebaseAuthUI = lazy(() => import('@/pages/Auth/Auth'));
 const NotFound = lazy(() => import('@/pages/NotFound/NotFound'));
 const RocketDescription = lazy(
 	() => import('./pages/RocketDescription/RocketDescription')
@@ -13,8 +15,21 @@ function App() {
 			path: '/',
 			element: <SharedLayout />,
 			children: [
-				{ index: true, element: <Main /> },
-				{ path: 'rocket/:id', element: <RocketDescription /> },
+				{
+					index: true,
+					element: <Main />,
+				},
+				{
+					path: 'rocket/:id',
+					element: <RocketDescription />,
+				},
+				{
+					path: 'auth',
+					element: (
+						<RestrictedRoute redirectTo="/" component={FirebaseAuthUI} />
+					),
+				},
+
 				{ path: '*', element: <NotFound /> },
 			],
 		},

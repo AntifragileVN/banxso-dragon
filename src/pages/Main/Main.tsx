@@ -59,7 +59,7 @@ const Main = () => {
 		const fetchRocketParams = async () => {
 			const response = await api.getRocketParams();
 			if (response?.length >= 0) {
-				setRockets(response);
+				// setRockets(response);
 				setRockets((prev) => [...prev, ...response]);
 			}
 		};
