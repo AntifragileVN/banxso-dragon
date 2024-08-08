@@ -62,7 +62,7 @@ const TeamSection = ({ team }: TeamSectionProps) => {
 										centeredSlides: false,
 									},
 									1020: {
-										slidesPerView: 2,
+										slidesPerView: 2.2,
 										spaceBetween: 10,
 									},
 								}}

@@ -14,4 +14,11 @@
 
 .menu__item {
 	text-transform: uppercase;
+	border-bottom: 2px solid transparent;
+	transition: border $transition-duration $timing-function;
+
+	&:hover {
+		content: ' ';
+		border-bottom: 2px solid getColor('primary-text-color');
+	}
 }
