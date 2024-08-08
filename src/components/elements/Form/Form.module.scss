@@ -1,0 +1,131 @@
+.form {
+	max-width: 450px;
+	width: 100%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: getColor('border-color');
+	border-radius: 20px;
+	padding: 60px 30px;
+
+	// background: #212832;
+}
+
+.form__container {
+	height: 70vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form__title {
+	font-weight: 700;
+	font-size: 34px;
+	line-height: 1.2;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 32px;
+}
+
+.form__label {
+	display: inline-block;
+	// color: #8caab9;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.form__socials {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+
+	margin-bottom: 20px;
+}
+
+.form__socialsBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 15px;
+	background: transparent;
+
+	border-radius: 50%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: getColor('primary-text-color');
+	border-radius: 20px;
+	transition: background-color $transition-duration $timing-function;
+
+	&:hover {
+		background: transparent;
+		background-color: getColor('primary-text-color');
+	}
+
+	&:hover > svg {
+		fill: getColor('primary-bg-color');
+	}
+}
+
+.form__socialsIcon {
+	fill: getColor('primary-text-color');
+	width: 24px;
+	height: 24px;
+}
+
+.form__inputWrapper {
+	background: transparent;
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin-bottom: 25px;
+}
+
+.form__input {
+	width: 100%;
+	padding-top: 17px;
+	padding-bottom: 17px;
+	padding-left: 40px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: getColor('border-color');
+	border-radius: 10px;
+
+	background: transparent;
+
+	font-size: 18px;
+	color: inherit;
+}
+
+.form__inputIcon {
+	position: absolute;
+	left: 10px;
+	width: 25px;
+	height: 25px;
+}
+
+.form__submit {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 15px;
+	background: transparent;
+
+	border-radius: 50%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: getColor('primary-text-color');
+	border-radius: 20px;
+	transition: background-color $transition-duration $timing-function;
+
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 1.2;
+	text-align: center;
+	text-transform: uppercase;
+	background: getColor('primary-text-color');
+
+	&:hover {
+		background: getColor('primary-bg-color');
+		color: getColor('primary-text-color');
+	}
+}
