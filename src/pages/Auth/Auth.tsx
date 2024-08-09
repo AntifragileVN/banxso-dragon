@@ -7,7 +7,7 @@ import c from '@/components/elements/Form/Form.module.scss';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 import { FiLock } from 'react-icons/fi';
 import { FaGoogle } from 'react-icons/fa';
-import { useAuth } from '@/services/auth.service';
+// import { useAuth } from '@/services/auth.service';
 
 const FirebaseAuthUI: React.FC = () => {
 	const [email, setEmail] = useState<string>('');
@@ -16,17 +16,15 @@ const FirebaseAuthUI: React.FC = () => {
 	// const [passwordError, setPasswordError] = useState<string>('');
 
 	const provider = new GoogleAuthProvider();
-	const { setCurrentUser } = useAuth();
 
 	const onButtonClick = async () => {
 		try {
-			const result = await signInWithPopup(auth, provider);
+			await signInWithPopup(auth, provider);
 			// This gives you a Google Access Token. You can use it to access the Google API.
 			// const credential = GoogleAuthProvider.credentialFromResult(result);
 			// const token = credential.accessToken;
 			// The signed-in user info.
-			const user = result?.user;
-			setCurrentUser(user);
+			// const user = result?.user;
 
 			// IdP data available using getAdditionalUserInfo(result)
 			// ...

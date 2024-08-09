@@ -1,22 +1,22 @@
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 import { auth } from './firebase';
 import {
 	signInWithEmailAndPassword,
 	createUserWithEmailAndPassword,
 	signOut,
+	onAuthStateChanged,
 } from 'firebase/auth';
-import { useRecoilState } from 'recoil';
-import { currentUserState } from '@/store/user.store';
+import { isAuthenticatedState } from '@/store/user.store';
 
 export const useAuth = () => {
-	const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
-
-	// useEffect(() => {
-	// 	const unsubscribe = onAuthStateChanged(auth, (user) => {
-	// 		setCurrentUser(user);
-	// 		console.log('user', user);
-	// 	});
-	// 	return unsubscribe;
-	// }, [setCurrentUser]);
+	const [, setIsAuthenticated] = useRecoilState(isAuthenticatedState);
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			setIsAuthenticated(!!user);
+		});
+		return () => unsubscribe();
+	}, [setIsAuthenticated]);
 
 	const signup = (email: string, password: string) => {
 		return createUserWithEmailAndPassword(auth, email, password);
@@ -26,13 +26,15 @@ export const useAuth = () => {
 		return signInWithEmailAndPassword(auth, email, password);
 	};
 
-	const logout = () => {
-		return signOut(auth);
+	const logout = async () => {
+		try {
+			await signOut(auth);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return {
-		currentUser,
-		setCurrentUser,
 		signup,
 		login,
 		logout,

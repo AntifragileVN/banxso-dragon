@@ -1,5 +1,6 @@
-import { useAuth } from '@/services/auth.service';
+import { isAuthenticatedState } from '@/store/user.store';
 import { Navigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 
 type RestrictedRouteProps = {
 	component: React.ComponentType;
@@ -10,9 +11,6 @@ export const RestrictedRoute = ({
 	component: Component,
 	redirectTo = '/',
 }: RestrictedRouteProps) => {
-	const { currentUser } = useAuth();
-
-	console.log(!!currentUser);
-
-	return currentUser ? <Navigate to={redirectTo} /> : <Component />;
+	const [isAuthenticated] = useRecoilState(isAuthenticatedState);
+	return isAuthenticated ? <Navigate to={redirectTo} /> : <Component />;
 };
