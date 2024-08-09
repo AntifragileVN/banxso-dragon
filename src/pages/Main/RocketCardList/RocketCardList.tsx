@@ -6,6 +6,8 @@ import Arrow from '@/assets/Arrow.svg?react';
 
 import type { Rocket } from '@/types/rocket.type';
 import './customSwiper.css';
+import { useRecoilState } from 'recoil';
+import { favoriteRocketsState } from '@/store/favorites.store';
 
 type RocketCardListProps = {
 	rockets: Rocket[];
@@ -13,6 +15,7 @@ type RocketCardListProps = {
 
 const RocketCardList = ({ rockets }: RocketCardListProps) => {
 	const shouldRender = rockets && rockets.length > 0;
+	const [favorites] = useRecoilState(favoriteRocketsState);
 
 	return (
 		<>
@@ -51,7 +54,10 @@ const RocketCardList = ({ rockets }: RocketCardListProps) => {
 					>
 						{rockets.map(({ id, ...rest }) => (
 							<SwiperSlide key={id} data-testid={'rocket-slide-item'}>
-								<RocketCard rocket={{ id, ...rest }} />
+								<RocketCard
+									rocket={{ id, ...rest }}
+									isFavorite={favorites.includes(id)}
+								/>
 							</SwiperSlide>
 						))}
 					</Swiper>

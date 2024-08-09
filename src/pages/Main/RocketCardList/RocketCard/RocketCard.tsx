@@ -5,14 +5,13 @@ import gif from '@/assets/rocket.gif';
 import { FaStar } from 'react-icons/fa6';
 
 import type { Rocket } from '@/types/rocket.type';
-import { useRecoilState } from 'recoil';
-import { favoriteRocketsState } from '@/store/favorites.store';
 
 type RocketCardProps = {
 	rocket: Rocket;
+	isFavorite: boolean;
 };
 
-const RocketCard = ({ rocket }: RocketCardProps) => {
+const RocketCard = ({ isFavorite, rocket }: RocketCardProps) => {
 	const {
 		height_w_trunk,
 		diameter,
@@ -25,14 +24,11 @@ const RocketCard = ({ rocket }: RocketCardProps) => {
 	} = rocket;
 
 	const { toggleFavorites } = useFavorites();
-	const [favorites] = useRecoilState(favoriteRocketsState);
 
 	return (
 		<div className={c.rocketcard__wrapper}>
 			<button
-				className={`${c.rocketcard__favoriteBtn} ${
-					favorites.includes(id) ? c.active : ''
-				}`}
+				className={`${c.rocketcard__favoriteBtn} ${isFavorite ? c.active : ''}`}
 				onClick={() => toggleFavorites(id)}
 			>
 				<FaStar size={24} />

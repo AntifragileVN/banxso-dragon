@@ -1,14 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
 import ParallaxSection from './ParallaxSection';
 import type { ParallaxContentType } from '@/types/parallax.type';
+
+import MainWrapper from '@/MainWrapper';
 
 describe('ToolList', () => {
 	it('Render nothing if empty array was given', () => {
 		render(
-			<MemoryRouter>
+			<MainWrapper>
 				<ParallaxSection parallaxContent={[]} />
-			</MemoryRouter>
+			</MainWrapper>
 		);
 
 		expect(screen.queryByTestId('rocket-list')).toBeNull();
@@ -16,11 +17,11 @@ describe('ToolList', () => {
 
 	it('Render nothing if null was given', () => {
 		render(
-			<MemoryRouter>
+			<MainWrapper>
 				<ParallaxSection
 					parallaxContent={null as unknown as ParallaxContentType[]}
 				/>
-			</MemoryRouter>
+			</MainWrapper>
 		);
 
 		expect(screen.queryByTestId('parallax-list')).toBeNull();
@@ -28,11 +29,11 @@ describe('ToolList', () => {
 
 	it('Render nothing if undefined was given', () => {
 		render(
-			<MemoryRouter>
+			<MainWrapper>
 				<ParallaxSection
 					parallaxContent={undefined as unknown as ParallaxContentType[]}
 				/>
-			</MemoryRouter>
+			</MainWrapper>
 		);
 
 		expect(screen.queryByTestId('rocket-list')).toBeNull();
@@ -55,9 +56,9 @@ describe('ToolList', () => {
 		] as ParallaxContentType[];
 
 		render(
-			<MemoryRouter>
+			<MainWrapper>
 				<ParallaxSection parallaxContent={parallaxContent} />
-			</MemoryRouter>
+			</MainWrapper>
 		);
 
 		expect(screen.getByTestId('parallax-list')).toBeInTheDocument();

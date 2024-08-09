@@ -1,14 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
 import RocketCardList from './RocketCardList';
 import { Rocket } from '@/types/rocket.type';
+import MainWrapper from '@/MainWrapper';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('RocketCardList', () => {
 	it('Render nothing if empty array was given', () => {
 		render(
-			<MemoryRouter>
+			<MainWrapper>
 				<RocketCardList rockets={[]} />
-			</MemoryRouter>
+			</MainWrapper>
 		);
 
 		expect(screen.queryByTestId('rocket-list')).toBeNull();
@@ -16,9 +17,9 @@ describe('RocketCardList', () => {
 
 	it('Render nothing if null was given', () => {
 		render(
-			<MemoryRouter>
+			<MainWrapper>
 				<RocketCardList rockets={null as unknown as Rocket[]} />
-			</MemoryRouter>
+			</MainWrapper>
 		);
 
 		expect(screen.queryByTestId('rocket-list')).toBeNull();
@@ -26,9 +27,9 @@ describe('RocketCardList', () => {
 
 	it('Render nothing if undefined was given', () => {
 		render(
-			<MemoryRouter>
+			<MainWrapper>
 				<RocketCardList rockets={undefined as unknown as Rocket[]} />
-			</MemoryRouter>
+			</MainWrapper>
 		);
 
 		expect(screen.queryByTestId('rocket-list')).toBeNull();
@@ -202,7 +203,9 @@ describe('RocketCardList', () => {
 
 		render(
 			<MemoryRouter>
-				<RocketCardList rockets={rockets} />
+				<MainWrapper>
+					<RocketCardList rockets={rockets} />
+				</MainWrapper>
 			</MemoryRouter>
 		);
 
