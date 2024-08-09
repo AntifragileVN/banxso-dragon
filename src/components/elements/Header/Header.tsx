@@ -15,17 +15,19 @@ const Header = () => {
 				<NavLink to="/">Logo</NavLink>
 			</Button>
 			<nav className={c.menu}>
-				<a href="#" className={c.menu__item}>
+				<NavLink to="/" className={c.menu__item}>
 					Home
-				</a>
+				</NavLink>
+				{isAuthenticated ? (
+					<NavLink to={'favorites'} className={c.menu__item}>
+						Favorites
+					</NavLink>
+				) : null}
 				<a href="#" className={c.menu__item}>
 					About
 				</a>
 				<a href="#" className={c.menu__item}>
 					QA
-				</a>
-				<a href="#" className={c.menu__item}>
-					Contact Form
 				</a>
 			</nav>
 			<div className={c.header__authNav}>

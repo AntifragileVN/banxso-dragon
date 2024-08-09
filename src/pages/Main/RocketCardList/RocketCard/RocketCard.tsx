@@ -1,8 +1,12 @@
+import { useFavorites } from '@/hooks/useFavorite';
 import { NavLink } from 'react-router-dom';
 import c from './RocketCard.module.scss';
 import gif from '@/assets/rocket.gif';
+import { FaStar } from 'react-icons/fa6';
 
 import type { Rocket } from '@/types/rocket.type';
+import { useRecoilState } from 'recoil';
+import { favoriteRocketsState } from '@/store/favorites.store';
 
 type RocketCardProps = {
 	rocket: Rocket;
@@ -19,8 +23,20 @@ const RocketCard = ({ rocket }: RocketCardProps) => {
 		name,
 		id,
 	} = rocket;
+
+	const { toggleFavorites } = useFavorites();
+	const [favorites] = useRecoilState(favoriteRocketsState);
+
 	return (
 		<div className={c.rocketcard__wrapper}>
+			<button
+				className={`${c.rocketcard__favoriteBtn} ${
+					favorites.includes(id) ? c.active : ''
+				}`}
+				onClick={() => toggleFavorites(id)}
+			>
+				<FaStar size={24} />
+			</button>
 			<div className={c.rocketcard__gif}>
 				<NavLink to={`rocket/${id}`}>
 					<img src={gif} alt="Rocket photo" />

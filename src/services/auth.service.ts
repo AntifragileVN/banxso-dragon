@@ -7,16 +7,19 @@ import {
 	signOut,
 	onAuthStateChanged,
 } from 'firebase/auth';
-import { isAuthenticatedState } from '@/store/user.store';
+import { currentUserState, isAuthenticatedState } from '@/store/user.store';
 
 export const useAuth = () => {
 	const [, setIsAuthenticated] = useRecoilState(isAuthenticatedState);
+	const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
+
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
 			setIsAuthenticated(!!user);
+			setCurrentUser(user);
 		});
 		return () => unsubscribe();
-	}, [setIsAuthenticated]);
+	}, [setIsAuthenticated, setCurrentUser]);
 
 	const signup = (email: string, password: string) => {
 		return createUserWithEmailAndPassword(auth, email, password);
@@ -35,6 +38,7 @@ export const useAuth = () => {
 	};
 
 	return {
+		currentUser,
 		signup,
 		login,
 		logout,
