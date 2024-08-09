@@ -1,8 +1,14 @@
+import { useAuth } from '@/services/auth.service';
+import { useRecoilState } from 'recoil';
+import { isAuthenticatedState } from '@/store/user.store';
 import Button from '@/components/UI/Button/Button';
 import c from './Header.module.scss';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
+	const { logout } = useAuth();
+	const [isAuthenticated] = useRecoilState(isAuthenticatedState);
+
 	return (
 		<div className={c.header__wrapper}>
 			<Button>
@@ -22,9 +28,20 @@ const Header = () => {
 					Contact Form
 				</a>
 			</nav>
-			<Button>
-				<NavLink to="/">Contact Form</NavLink>
-			</Button>
+			<div className={c.header__authNav}>
+				<Button>
+					<NavLink to="/">Contact Form</NavLink>
+				</Button>
+				{isAuthenticated ? (
+					<Button type="button" onClick={logout}>
+						Log out
+					</Button>
+				) : (
+					<Button>
+						<NavLink to="/auth">Log in</NavLink>
+					</Button>
+				)}
+			</div>
 		</div>
 	);
 };

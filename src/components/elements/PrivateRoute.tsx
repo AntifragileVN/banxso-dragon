@@ -1,5 +1,6 @@
-import { useAuth } from '@/services/auth.service';
+import { isAuthenticatedState } from '@/store/user.store';
 import { Navigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 
 type PrivateRouteProps = {
 	component: React.ComponentType;
@@ -12,10 +13,9 @@ export const PrivateRoute = ({
 	component: Component,
 	redirectTo = '/auth',
 }: PrivateRouteProps) => {
-	const { currentUser } = useAuth();
-	console.log(currentUser);
-
-	const shouldRedirect = !currentUser;
+	const [isAuthenticated] = useRecoilState(isAuthenticatedState);
+	// const { currentUser } = useAuth();
+	const shouldRedirect = !isAuthenticated;
 
 	console.log(shouldRedirect);
 

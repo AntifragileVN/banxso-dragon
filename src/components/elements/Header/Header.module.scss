@@ -22,3 +22,9 @@
 		border-bottom: 2px solid getColor('primary-text-color');
 	}
 }
+
+.header__authNav {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
