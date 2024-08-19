@@ -39,7 +39,7 @@ const ParallaxSection = ({ parallaxContent }: ParallaxSectionProps) => {
 									<div className="parallax-bg">
 										<img src={parallaxContent[index].img} alt="" />
 									</div>
-									<div className="content">
+									<div className={c.parallax__content}>
 										<h1
 											className={c.parallax__title}
 											data-swiper-parallax="-500"

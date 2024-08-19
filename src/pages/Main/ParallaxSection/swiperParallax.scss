@@ -35,16 +35,6 @@
 	z-index: 2;
 }
 
-.content {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	/* align-items: flex-end; */
-	text-align: start;
-	max-width: 450px;
-	padding-bottom: 126px;
-}
-
 .swiper-pagination {
 	z-index: 2 !important;
 }

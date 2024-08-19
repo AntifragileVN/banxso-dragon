@@ -5,13 +5,28 @@
 
 .parallax__title {
 	font-weight: 700;
-	font-size: 64px;
+	font-size: 48px;
 	line-height: 1.2;
 	text-align: start;
 	text-transform: uppercase;
 	margin-bottom: 24px;
+
+	@media (min-width: $tablet) {
+		font-size: 64px;
+	}
 }
 
 .parallax__text {
 	line-height: 1.7;
+}
+
+.parallax__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	/* align-items: flex-end; */
+	text-align: start;
+	max-width: 450px;
+	padding-bottom: 126px;
+	width: 100%;
 }
